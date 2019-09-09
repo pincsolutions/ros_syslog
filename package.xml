@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<package>
+  <name>ros_syslog</name>
+  <version>0.0.1</version>
+  <description>
+    Logs information from psutils to a message that can be recorded in a bag file.
+  </description>
+
+  <maintainer email="bperseghetti@rudislabs.com">Benjamin Perseghetti</maintainer>
+  <author email="bperseghetti@rudislabs.com">Benjamin Perseghetti</author>
+
+  <license>BSD</license>
+
+  <url type="bugtracker">https://github.com/rudislabs/ros_syslog/issues</url>
+  <url type="repository">https://github.com/rudislabs/ros_syslog</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  
+  <build_depend>rospy</build_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>cmake_modules</build_depend>
+  <build_depend>roslint</build_depend>
+
+  <run_depend>message_runtime</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>rospy</run_depend>
+
+  <export>
+  </export>
+</package>

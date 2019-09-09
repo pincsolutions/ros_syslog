@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+
+<launch>
+  <arg name="collect_hz" default="20.0"/>
+  <node pkg="ros_syslog" name="ros_syslog_node" type="system_stats.py" output="screen"> 
+  	<param name="~collect_hz" value="$(arg collect_hz)"/>
+  </node>
+</launch>
+
