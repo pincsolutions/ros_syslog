@@ -2,6 +2,7 @@
 import rospy
 import rospkg
 import numpy as np
+import sys
 from std_msgs.msg import String
 import time
 import ros_syslog.msg
@@ -15,19 +16,19 @@ class ROS_System_Log:
       
       # ros publishers
       if self.num_cpus == 2:
-         self.pub_syslog = rospy.Publisher('/SysLog', ros_syslog.msg.SystemStatsCPU2.msg, queue_size=0)
+         self.pub_syslog = rospy.Publisher('/SysLog', ros_syslog.msg.SystemStatsCPU2, queue_size=0)
     
       if self.num_cpus == 4:
-         self.pub_syslog = rospy.Publisher('/SysLog', ros_syslog.msg.SystemStatsCPU4.msg, queue_size=0)
+         self.pub_syslog = rospy.Publisher('/SysLog', ros_syslog.msg.SystemStatsCPU4, queue_size=0)
     
       if self.num_cpus == 6:
-         self.pub_syslog = rospy.Publisher('/SysLog', ros_syslog.msg.SystemStatsCPU6.msg, queue_size=0)
+         self.pub_syslog = rospy.Publisher('/SysLog', ros_syslog.msg.SystemStatsCPU6, queue_size=0)
     
       if self.num_cpus == 8:
-         self.pub_syslog = rospy.Publisher('/SysLog', ros_syslog.msg.SystemStatsCPU8.msg, queue_size=0)
+         self.pub_syslog = rospy.Publisher('/SysLog', ros_syslog.msg.SystemStatsCPU8, queue_size=0)
     
       if self.num_cpus == 10:
-         self.pub_syslog = rospy.Publisher('/SysLog', ros_syslog.msg.SystemStatsCPU10.msg, queue_size=0)
+         self.pub_syslog = rospy.Publisher('/SysLog', ros_syslog.msg.SystemStatsCPU10, queue_size=0)
    
 
       # callback on timer
@@ -39,19 +40,19 @@ class ROS_System_Log:
       cpu_percentages = psutil.cpu_percent(percpu=True)
       cpu_temperature = psutil.sensors_temperatures()["coretemp"]
       if self.num_cpus == 2:
-         RSL_msg = ros_syslog.msg.SystemStatsCPU2.msg()
+         RSL_msg = ros_syslog.msg.SystemStatsCPU2()
     
       if self.num_cpus == 4:
-         RSL_msg = ros_syslog.msg.SystemStatsCPU4.msg()
+         RSL_msg = ros_syslog.msg.SystemStatsCPU4()
     
       if self.num_cpus == 6:
-         RSL_msg = ros_syslog.msg.SystemStatsCPU6.msg()
+         RSL_msg = ros_syslog.msg.SystemStatsCPU6()
     
       if self.num_cpus == 8:
-         RSL_msg = ros_syslog.msg.SystemStatsCPU8.msg()
+         RSL_msg = ros_syslog.msg.SystemStatsCPU8()
     
       if self.num_cpus == 10:
-         RSL_msg = ros_syslog.msg.SystemStatsCPU10.msg()
+         RSL_msg = ros_syslog.msg.SystemStatsCPU10()
    
       
       RSL_msg.header.stamp = rospy.get_rostime()
