@@ -25,13 +25,3 @@ int8 percent_6
 int8 percent_7
 int8 percent_8
 int8 percent_9
-int8 percent_10
-int8 percent_11
-int8 percent_12
-int8 percent_13
-int8 percent_14
-int8 percent_15
-int8 percent_16
-int8 percent_17
-int8 percent_18
-int8 percent_19

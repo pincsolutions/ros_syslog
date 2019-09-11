@@ -13,7 +13,3 @@ int8 percent_0
 int8 percent_1
 int8 percent_2
 int8 percent_3
-int8 percent_4
-int8 percent_5
-int8 percent_6
-int8 percent_7
