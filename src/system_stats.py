@@ -7,6 +7,7 @@ from std_msgs.msg import String
 import time
 import ros_syslog.msg
 import psutil
+import subprocess
 
 class ROS_System_Log:
 
@@ -39,6 +40,8 @@ class ROS_System_Log:
    def log_system(self, event):
       cpu_percentages = psutil.cpu_percent(percpu=True)
       cpu_temperature = psutil.sensors_temperatures()["coretemp"]
+      net = subprocess.Popen(["cat", "/proc/net/wireless"], stdout=subprocess.PIPE).communicate()[0].split('\n')[2].split()[3]
+
       if self.num_cpus == 2:
          RSL_msg = ros_syslog.msg.SystemStatsCPU2()
     
@@ -56,6 +59,8 @@ class ROS_System_Log:
    
       
       RSL_msg.header.stamp = rospy.get_rostime()
+      RSL_msg.net_percent = np.int8(np.round(((float(net)+110)*10.0)/7.0))
+      RSL_msg.net_RSSI_dBm = np.int8(np.round(float(net)))
       RSL_msg.temp_package = np.int8(np.round(cpu_temperature[0].current))
       RSL_msg.temp_core_0 = np.int8(np.round(cpu_temperature[1].current))
       RSL_msg.temp_core_1 = np.int8(np.round(cpu_temperature[2].current))
